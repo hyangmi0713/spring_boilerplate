@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    username: rssadmin
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/rssdb?characterEncoding=UTF-8
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: boilerplate
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    open-in-view: true
+  sql:
+    init:
+      mode: always
+  flyway:
+    enabled: false # 개발단계에서 굳이 쓸 필요는 없을듯?
+    baseline-on-migrate: false
+    default-schema: boilerplate
+    schemas: boilerplate # schema1, schema2
+  mvc:  # F/E 개발 후 삭제
+    view:
+      prefix: /templates/
+      suffix: .mustache
+
+springdoc:
+  title: boilerplate
+  description: example something
+  version: 0.0.1.beta
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /boilerApi.html
+    enabled: true

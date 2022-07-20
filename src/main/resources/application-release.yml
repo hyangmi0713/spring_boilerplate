@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    username: rssadmin
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/rssdb?characterEncoding=UTF-8
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        default_schema: boilerplate
+    show-sql: true
+    hibernate:
+      ddl-auto: validate # flyway로 db sql을 관리할 예정이므로 jpa는 가능여부만 체크한다.
+    generate-ddl: true
+    open-in-view: true
+  sql:
+    init:
+      mode: always
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    default-schema: boilerplate
+    schemas: boilerplate # schema1, schema2
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
